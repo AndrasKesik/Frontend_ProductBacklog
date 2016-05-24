@@ -1,0 +1,14 @@
+.form-group {
+    width: 400px;
+}
+
+label,
+button {
+    margin-top: 20px;
+}
+
+#effort,
+#priority,
+#state {
+    width: 120px;
+}
