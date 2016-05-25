@@ -1,0 +1,8 @@
+.error {
+    color: firebrick;
+}
+
+.invalid {
+    background-color: #FF8888;
+    color: #005555;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Task</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/TaskForm.css">
+
+    <script type="text/javascript" src="js/TaskForm.js"></script>
+</head>
+<body>
+    <form>
+        <header id="header" class="container">
+            <div id="divHeader" class="row">
+                <h1 id="hTitle" class="page-header">New Task</h1>
+                <label id="lbInvalidTitle" class="error col-sm-8"></label>
+            </div>
+        </header>
+
+        <section id="scnTitle" class="container">
+            <div id="divTitle" class="row">
+                <input id="inpTitle" type="text" placeholder="Enter Title"
+                       onchange="product_backlog.task_form.validateTitle()" class="col-sm-12"/>
+            </div>
+            <div id="divDropDown" class="row">
+                <select id="selDropDown" class="col-sm-4">
+                    <option value="ToDo">To Do</option>
+                </select>
+            </div>
+            <hr/>
+        </section>
+
+        <section id="divDesc" class="container">
+            <label id="lbDesc" class="col-sm-8">Description</label>
+            <br/>
+            <textarea id="txtDesc" rows="15" class="col-sm-12">
+
+            </textarea>
+            <br/>
+            <button id="btnSave" type="submit" class="btn btn-primary">Add</button>
+        </section>
+    </form>
+</body>
+</html>

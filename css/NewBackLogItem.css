@@ -1,0 +1,27 @@
+#itemName,
+#description,
+#criteria {
+    width: 300px;
+}
+
+label {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 25px;
+}
+
+#effort,
+#priority,
+#state {
+    width: 120px;
+}
+
+.redBorder {
+    border: solid 1px red;
+}
+
+.greenBorder {
+    border: solid 1px green;
+}
