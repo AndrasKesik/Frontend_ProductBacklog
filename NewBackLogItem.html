@@ -13,44 +13,47 @@
 <body>
 
 <div class="container">
-    <div class="page-header">
+    <header class="page-header">
         <h2>Add new Backlog item</h2>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="itemName">Item name</label>
-                    <input type="text" class="form-control" id="itemName">
-                    <label for="discription">Description</label>
-                    <textarea class="form-control" rows="4" id="discription"></textarea>
-                    <label for="criteria">Acceptance criteria</label>
-                    <textarea class="form-control" rows="4" id="criteria"></textarea>
-                    <button type="button" class="btn btn-default">Add item</button>
-                </div>
+    </header>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="itemName">Title</label>
+                <input type="text" class="form-control" id="itemName"
+                       placeholder="Min 3 characters max 50">
+                <label for="description">Description</label>
+                <textarea class="form-control" rows="4" id="description"
+                    placeholder="Optional. Max 500 characters long."></textarea>
+                <label for="criteria">Acceptance criteria</label>
+                <textarea class="form-control" rows="4" id="criteria"
+                          placeholder="Optional. Max 500 characters long."></textarea>
             </div>
-            <div class="col-sm-2">
-                <label for="priority">State</label>
-                <select class="form-control" id="state">
-                    <option>New</option>
-                    <option>Approved</option>
-                    <option>Committed</option>
-                    <option>Done</option>
-                </select>
-                <label for="priority">Priority</label>
-                <select class="form-control" id="priority">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-                <label for="effort">Effort</label>
-                <select class="form-control" id="effort">
-                    <option>1</option>
-                    <option>3</option>
-                    <option>5</option>
-                    <option>7</option>
-                </select>
-            </div>
+        </div>
+        <div class="col-sm-6">
+            <label for="state">State</label>
+            <select class="form-control" id="state">
+                <option>New</option>
+                <option>Approved</option>
+                <option>Committed</option>
+                <option>Done</option>
+            </select>
+            <label for="priority">Priority</label>
+            <select class="form-control" id="priority">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <label for="effort">Effort</label>
+            <select class="form-control" id="effort">
+                <option>1</option>
+                <option>3</option>
+                <option>5</option>
+                <option>7</option>
+            </select>
+            <button type="button" class="btn btn-primary" id="addItem" disabled>Add item</button>
         </div>
     </div>
 </div>
@@ -59,5 +62,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
+<script src="js/NewBacklogItem.js"></script>
 </body>
 </html>
