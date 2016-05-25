@@ -4,20 +4,50 @@
 (function (app) {
     (function (subapp) {
         subapp.validateTitle = validateTitle;
+        subapp.validateDescription = validateDescription;
+
+        var validity = {
+            title: false,
+            description: false
+        };
 
         function validateTitle() {
-            var input = document.getElementById('inpTitle');
-            var lbError = document.getElementById('lbInvalidTitle');
-            var regex = new RegExp('.+');
-            input.value = input.value.trim();
-            if (new RegExp('.+').test(input.value)) {
-                lbError.textContent = '';
+            validateInput(function (input) {
+                var regex = new RegExp('.+');
+                input.value = input.value.trim();
+                return regex.test(input.value);
+            }, 'title', 'inpTitle', 'errInvalidTitle', 'Field \'Title\' cannot be empty!');
+        }
+
+        function validateDescription() {
+            validateInput(function (input) {
+                return input.value.length > 0;
+            }, 'description', 'txtDesc', 'errInvalidDesc', 'Field \'Description\' cannot be empty!');
+        }
+
+        function validateInput(validatorFcn, name, inputId, errId, errMsg) {
+            var input = document.getElementById(inputId);
+            var lsErrors = document.getElementById('ulErrors');
+            validity[name] = validatorFcn(input);
+            var liErrMsg;
+            if (validity[name]) {
+                liErrMsg = document.getElementById(errId);
+                if (!! liErrMsg)
+                    lsErrors.removeChild(liErrMsg);
                 input.classList.remove('invalid');
-            }
-            else {
-                lbError.textContent = 'Field \'Title\' cannot be empty!';
+            } else {
+                liErrMsg = document.createElement('li');
+                liErrMsg.id = errId;
+                liErrMsg.textContent = errMsg;
+                lsErrors.appendChild(liErrMsg);
                 input.classList.add('invalid');
             }
-        }    
+            refreshSavable();
+        }
+        
+        function refreshSavable() {
+            var button = document.getElementById('btnSave');
+            button.disabled = !(validity.title && validity.description);
+        }
     })(app.task_form = app.task_form || {});
 })(window.product_backlog = window.product_backlog || {});

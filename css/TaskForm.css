@@ -6,3 +6,16 @@
     background-color: #FF8888;
     color: #005555;
 }
+
+.one-line {
+    width: 300px;
+}
+
+.drop-down {
+    width: 200px;
+}
+
+.area {
+    width: 300px;
+    height: 500px;
+}
