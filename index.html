@@ -9,6 +9,9 @@
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/BacklogItems.css"/>
     <link rel="stylesheet" type="text/css" href="css/NewBacklogItem.css"/>
+    <link rel="stylesheet" href="css/TaskForm.css">
+
+    <script type="text/javascript" src="js/TaskForm.js"></script>
 </head>
 <body>
 
@@ -17,9 +20,11 @@
         <h2>Backlog items</h2>
         <div class="row">
             <button type="button" class="btn btn-link"><strong>Backlog</strong></button>
-            <button id="addBacklogItem" type="button" class="btn btn-secondary pull-right"  data-toggle="modal" data-target="#myModal">Add New Item</button>
+            <button id="addBacklogItem" type="button" class="btn btn-secondary pull-right"  data-toggle="modal" data-target="#newBacklogItem">Add New Item</button>
         </div>
     </div>
+
+
 
     <table class="table table-hover">
         <thead>
@@ -35,7 +40,7 @@
         <tbody id="items">
         <tr>
             <td class="buttons">
-                <a class="addTask" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <a class="addTask" type="button" data-toggle="modal" data-target="#newTaskItem"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                 <a class="wrench" type="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
                 <a class="trash" type="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
             </td>
@@ -70,10 +75,19 @@
 
 </div>
 
+
+<div id="newBacklogItem" class="modal fade" role="dialog"></div>
+<div id="newTaskItem" class="modal fade" role="dialog"></div>
+<!-- LOGIN FORM -->
+<div id="loginForm" class="modal fade" role="dialog"></div>
+<!-- END LOGIN FORM -->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 <script src="js/app.js"></script>
+<script src="js/NewBacklogItem.js"></script>
 </body>
 </html>

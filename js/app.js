@@ -69,12 +69,13 @@ var addBacklogItem = function () {
     var currentItem = createNewBacklogItem("cool Codecool");
     itemsHolder.appendChild(currentItem);
     bindBacklogEvents(currentItem);
-    
 }
 
 
 var addNewTask = function () {
     console.log("Add new task");
+    $("#newTask").load("NewTaskForm.html");
+
 }
 
 var itemSettings = function () {
@@ -112,8 +113,11 @@ var bindBacklogEvents = function (backlogItem){
 }
 
 
-
-
+$("#newBacklogItem").load("NewBackLogItem.html");
+$("#loginForm").load("login.html");
+$("#newTaskItem").load("NewTaskForm.html");
+// $('#loginForm').modal('show');
+    
 btn_addBacklogItem.addEventListener("click", addBacklogItem);
     
 for(var i= 0; i < itemsHolder.children.length; i++){
