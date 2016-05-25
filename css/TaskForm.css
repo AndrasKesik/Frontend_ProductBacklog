@@ -8,14 +8,18 @@
 }
 
 .one-line {
-    width: 300px;
+    width: 100%;
 }
 
 .drop-down {
-    width: 200px;
+    width: 50%;
 }
 
 .area {
-    width: 300px;
+    width: 100%;
     height: 500px;
+}
+
+.modal-row {
+    margin: 0;
 }

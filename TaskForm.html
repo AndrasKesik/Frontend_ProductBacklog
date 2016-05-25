@@ -13,40 +13,43 @@
 
     <script type="text/javascript" src="js/TaskForm.js"></script>
 </head>
+
 <body>
     <form class="modal-content">
-        <section class="modal-header container">
-            <div class="row">
+        <section class="modal-header">
+            <div class="modal-title">
                 <h2 id="hTitle">New Task</h2>
             </div>
         </section>
 
-        <section class="modal-body container">
-            <div>
+        <section class="modal-body">
+            <div class="row modal-row">
                 <ul id="ulErrors" class="error"></ul>
             </div>
-            <div class="row">
+            <div class="row modal-row">
                 <input id="inpTitle" type="text" placeholder="Enter Title" maxlength="50"
                        onchange="product_backlog.task_form.validateTitle()" class="one-line"/>
             </div>
-            <div class="row">
+            <div class="row modal-row">
                 <select id="selDropDown" class="drop-down">
                     <option value="ToDo">To Do</option>
                 </select>
             </div>
             <hr/>
-            <div class="row">
+            <div class="row modal-row">
                 <label id="lbDesc">Description</label>
             </div>
-            <div class="row">
-                <textarea id="txtDesc" maxlength="500" onchange="product_backlog.task_form.validateDescription();"
-                          class="area">
-                </textarea>
+            <div class="row modal-row">
+                    <textarea id="txtDesc" maxlength="500" onchange="product_backlog.task_form.validateDescription()"
+                              class="area">
+                    </textarea>
             </div>
         </section>
 
-        <section class="modal-footer container">
-            <button id="btnSave" type="submit" disabled class="btn btn-primary">Add</button>
+        <section class="modal-footer">
+            <div class="row modal-row">
+                <button id="btnSaveTask" type="submit" disabled class="btn btn-primary">Add</button>
+            </div>
         </section>
     </form>
 </body>

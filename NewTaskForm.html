@@ -1,50 +1,43 @@
 <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h3 class="modal-title">Add New Task</h3>
-        </div>
-        <div class="modal-body">
+    <form class="modal-content">
+        <section class="modal-header">
+            <div class="modal-title">
+                <h2 id="hTitle">New Task</h2>
+            </div>
+        </section>
 
+        <section class="modal-body">
+            <div class="row modal-row">
+                <ul id="ulErrors" class="error"></ul>
+            </div>
+            <div class="row modal-row">
+                <input id="inpTitle" type="text" placeholder="Enter Title" maxlength="50"
+                       onchange="product_backlog.task_form.validateTitle()" class="one-line"/>
+            </div>
+            <div class="row modal-row">
+                <select id="selDropDown" class="drop-down">
+                    <option value="ToDo">To Do</option>
+                </select>
+            </div>
+            <hr/>
+            <div class="row modal-row">
+                <label id="lbDesc">Description</label>
+            </div>
+            <div class="row modal-row">
+                <textarea id="txtDesc" maxlength="500" onchange="product_backlog.task_form.validateDescription()"
+                          class="area">
+                </textarea>
+            </div>
+        </section>
 
-            <!--<form>-->
-                <!--<header id="header" class="container">-->
-                    <!--<div id="divHeader" class="row">-->
-                        <!--<label id="lbInvalidTitle" class="error col-sm-8"></label>-->
-                    <!--</div>-->
-                <!--</header>-->
-
-                <!--<section id="scnTitle" class="container">-->
-                    <!--<div id="divTitle" class="row">-->
-                        <!--<input id="inpTitle" type="text" placeholder="Enter Title"-->
-                               <!--onchange="product_backlog.task_form.validateTitle()" class="col-sm-12"/>-->
-                    <!--</div>-->
-                    <!--<div id="divDropDown" class="row">-->
-                        <!--<select id="selDropDown" class="col-sm-4">-->
-                            <!--<option value="ToDo">To Do</option>-->
-                        <!--</select>-->
-                    <!--</div>-->
-                    <!--<hr/>-->
-                <!--</section>-->
-
-                <!--<section id="divDesc" class="container">-->
-                    <!--<label id="lbDesc" class="col-sm-8">Description</label>-->
-                    <!--<br/>-->
-            <!--<textarea id="txtDesc" rows="15" class="col-sm-12">-->
-
-            <!--</textarea>-->
-                    <!--<br/>-->
-
-                <!--</section>-->
-            <!--</form>-->
-
-        </div>
-        <div class="modal-footer">
-            <button id="btnSave" type="submit" class="btn btn-primary">Add</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
+        <section class="modal-footer">
+            <div class="row modal-row">
+                <button id="btnSaveTask" type="submit" disabled class="btn btn-primary">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </section>
+    </form>
 
 </div>

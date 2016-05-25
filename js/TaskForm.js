@@ -46,7 +46,7 @@
         }
         
         function refreshSavable() {
-            var button = document.getElementById('btnSave');
+            var button = document.getElementById('btnSaveTask');
             button.disabled = !(validity.title && validity.description);
         }
     })(app.task_form = app.task_form || {});
