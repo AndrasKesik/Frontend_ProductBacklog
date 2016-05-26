@@ -25,7 +25,6 @@
     </div>
 
 
-
     <table class="table table-hover">
         <thead>
         <tr>
@@ -38,50 +37,71 @@
         </tr>
         </thead>
         <tbody id="items">
-        <tr>
-            <td class="buttons">
-                <a class="addTask" type="button" data-toggle="modal" data-target="#newTaskItem"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                <a class="wrench" type="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                <a class="trash" type="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-            </td>
-            <td class="order">
-                1
-                <a class="taskList" type="button"><span class="glyphicon glyphicon-triangle-right pull-right" aria-hidden="true"></span></a>
-            </td>
-            <td class="title">Login</td>
-            <td class="state">New</td>
-            <td class="effort"></td>
-            <td class="priority">2</td>
-        </tr>
-        <!--<tr>-->
-            <!--<td class="plusbutton"></td>-->
-            <!--<td class="order">2</td>-->
-            <!--<td class="title">Backlog List</td>-->
+        <!--<tr id="backlogItem">-->
+            <!--<td class="buttons">-->
+                <!--<a class="addTask" type="button" data-toggle="modal" data-target="#newTaskItem"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>-->
+                <!--<a class="wrench" type="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>-->
+                <!--<a class="trash" type="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>-->
+            <!--</td>-->
+            <!--<td class="order">-->
+                <!--1-->
+                <!--<a class="taskList" type="button"  ><span class="glyphicon glyphicon-triangle-right pull-right" aria-hidden="true"></span></a>-->
+            <!--</td>-->
+            <!--<td class="title">Login</td>-->
             <!--<td class="state">New</td>-->
             <!--<td class="effort"></td>-->
-            <!--<td class="priority">1</td>-->
+            <!--<td class="priority">2</td>-->
         <!--</tr>-->
+
+        <!--</tr>-->
+        <!--<tr id="taksItem_1">-->
+            <!--<td colspan="2">-->
+            <!--</td>-->
+            <!--<td colspan="1">-->
+                <!--<div>Task1 for Login</div>-->
+            <!--</td>-->
+            <!--<td colspan="3">-->
+                <!--To Do-->
+            <!--</td>-->
+        <!--<tr class="taksItem_1">-->
+            <!--<td colspan="2">-->
+            <!--</td>-->
+            <!--<td colspan="1">-->
+                <!--<div>Task1 for Login</div>-->
+            <!--</td>-->
+            <!--<td colspan="3">-->
+                <!--To Do-->
+            <!--</td>-->
+        <!--</tr>-->
+
+
+
         <!--<tr>-->
-            <!--<td class="plusbutton"></td>-->
-            <!--<td class="order">3</td>-->
-            <!--<td class="title">Add task to backlog item</td>-->
+            <!--<td class="buttons">-->
+                <!--<a class="addTask" type="button" data-toggle="modal" data-target="#newTaskItem"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>-->
+                <!--<a class="wrench" type="button"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>-->
+                <!--<a class="trash" type="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>-->
+            <!--</td>-->
+            <!--<td class="order">-->
+                <!--2-->
+                <!--<a class="taskList" type="button"><span class="glyphicon glyphicon-triangle-right pull-right" aria-hidden="true"></span></a>-->
+            <!--</td>-->
+            <!--<td class="title">Login</td>-->
             <!--<td class="state">New</td>-->
             <!--<td class="effort"></td>-->
-            <!--<td class="priority">4</td>-->
+            <!--<td class="priority">6</td>-->
         <!--</tr>-->
+
+
         </tbody>
     </table>
 
-
 </div>
 
-
+<!--MODAL FORMS-->
 <div id="newBacklogItem" class="modal fade" role="dialog"></div>
 <div id="newTaskItem" class="modal fade" role="dialog"></div>
-<!-- LOGIN FORM -->
 <div id="loginForm" class="modal fade" role="dialog"></div>
-<!-- END LOGIN FORM -->
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

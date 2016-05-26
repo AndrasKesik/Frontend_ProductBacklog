@@ -4,17 +4,22 @@
 (function () {
  var btn_addBacklogItem = document.getElementById("addBacklogItem");
  var itemsHolder = document.getElementById("items");
- var orderID = 1;
+ var orderID = 0;
+ var backlogID = 0;
 
 var createNewBacklogItem = function (taskString) {
     var item = document.createElement("tr");
+    backlogID++;
+    item.id = "backlogItem_" + backlogID;
     //
     var buttons = document.createElement("td");
     buttons.className = "buttons";
 
-        var addTask = makeButton("addTask", "glyphicon glyphicon-plus")
+        var addTask = makeButton("addTask", "glyphicon glyphicon-plus");
+        addTask.setAttribute("data-toggle","modal");
+        addTask.setAttribute("data-target", "#newTaskItem");
         buttons.appendChild(addTask);
-
+    
         var wrench = makeButton("wrench", "glyphicon glyphicon-wrench");
         buttons.appendChild(wrench);
 
@@ -29,6 +34,7 @@ var createNewBacklogItem = function (taskString) {
     order.innerText = orderID;
 
         var taskList = makeButton("taskList", "glyphicon glyphicon-triangle-right pull-right");
+        taskList.style.display = "none";
         order.appendChild(taskList);
     
     item.appendChild(order);
@@ -65,17 +71,42 @@ var makeButton = function (buttonClassName, buttonGlyphicon ) {
     return aElement;
 }
 
+var createNewTaskItem = function () {
+    var item = document.createElement("tr");
+    var td1 = document.createElement("td");
+    td1.setAttribute("colspan","2");
+    item.appendChild(td1);
+    var title = document.createElement("td");
+    title.setAttribute("colspan","1");
+    title.innerText = "New Task for Login";
+    item.appendChild(title);
+    var state = document.createElement("td");
+    state.setAttribute("colspan", "3");
+    state.innerText = "To Do";
+    item.appendChild(state);
+    return item;
+};
+
 var addBacklogItem = function () {
-    var currentItem = createNewBacklogItem("cool Codecool");
-    itemsHolder.appendChild(currentItem);
-    bindBacklogEvents(currentItem);
+    var currentBacklogItem = createNewBacklogItem("cool Codecool");
+    itemsHolder.appendChild(currentBacklogItem);
+    bindBacklogEvents(currentBacklogItem);
 }
 
 
 var addNewTask = function () {
     console.log("Add new task");
-    $("#newTask").load("NewTaskForm.html");
-
+    // $("#newTaskItem").load("NewTaskForm.html");
+    var backlogItem = this.parentNode.parentNode;
+    var currentTaskItem = createNewTaskItem();
+    currentTaskItem.className += backlogItem.id;
+    var icon = backlogItem.childNodes[1].childNodes[1].firstChild;
+    itemsHolder.insertBefore(currentTaskItem, backlogItem.nextSibling);
+    if(icon.parentNode.style.display == "none"){
+        icon.parentNode.style.display = "inline";
+    }
+    if(icon.className === "glyphicon glyphicon-triangle-right pull-right"){
+        icon.className = "glyphicon glyphicon-triangle-bottom pull-right";}
 }
 
 var itemSettings = function () {
@@ -86,15 +117,52 @@ var itemSettings = function () {
 var itemDelete = function () {
     console.log("Delete Item");
     var listItem = this.parentNode.parentNode;
-    var tbody = listItem.parentNode;
-    tbody.removeChild(listItem);
+    var itemsToDelete = [];
+    for(var i= 0; i < itemsHolder.children.length; i++){
+        var tr = itemsHolder.children[i];
+        if( itemsHolder.children[i].className === listItem.id) {
+            itemsToDelete.push(itemsHolder.children[i]);
+        }
+    }
+    for(item in itemsToDelete){
+        itemsToDelete[item].remove();
+    }
+    itemsHolder.removeChild(listItem);
+    // rewriteOrder();
 }
 
 var showTaskList = function () {
     console.log("Show tasklist");
+    var listItem = this.parentNode.parentNode;
     console.log(this);
-    this.children[0]
-    // this.querySelector("a.taskList");
+    if(this.firstChild.className === "glyphicon glyphicon-triangle-right pull-right"){
+        this.firstChild.className = "glyphicon glyphicon-triangle-bottom pull-right";
+        for(var i= 0; i < itemsHolder.children.length; i++){
+            var taskitem = itemsHolder.children[i];
+            if(itemsHolder.children[i].className === listItem.id){
+                itemsHolder.children[i].style.display = "table-row";
+            }
+        }
+    }
+    else{
+        this.firstChild.className = "glyphicon glyphicon-triangle-right pull-right";
+        for(var i= 0; i < itemsHolder.children.length; i++){
+            var taskitem = itemsHolder.children[i];
+            if(itemsHolder.children[i].className === listItem.id){
+                itemsHolder.children[i].style.display = "none";
+            }
+        }
+    }
+
+
+}
+
+var rewriteOrder = function () {
+    for(var i= 0; i < itemsHolder.children.length; i++){
+        var properid = itemsHolder.children[i].id.substr(0,12);
+        if( properid === "backlogItem_"){
+        itemsHolder.children[i].children[1].innerText=i+1;}
+    }
 }
 
 
@@ -125,7 +193,5 @@ for(var i= 0; i < itemsHolder.children.length; i++){
     bindBacklogEvents(backlogItem);
 
 }
-    
-
 
 })();
