@@ -13,36 +13,50 @@
 
     <script type="text/javascript" src="js/TaskForm.js"></script>
 </head>
-<body>
-    <form>
-        <header id="header" class="container">
-            <div id="divHeader" class="row">
-                <h1 id="hTitle" class="page-header">New Task</h1>
-                <label id="lbInvalidTitle" class="error col-sm-8"></label>
-            </div>
-        </header>
 
-        <section id="scnTitle" class="container">
-            <div id="divTitle" class="row">
-                <input id="inpTitle" type="text" placeholder="Enter Title"
-                       onchange="product_backlog.task_form.validateTitle()" class="col-sm-12"/>
+<body>
+    <form class="modal-content">
+        <section class="modal-header">
+            <div class="modal-title">
+                <h2 id="hTitle">New Task</h2>
             </div>
-            <div id="divDropDown" class="row">
-                <select id="selDropDown" class="col-sm-4">
+        </section>
+
+        <section class="modal-body">
+            <div class="row modal-row">
+                <ul id="ulErrors" class="error"></ul>
+            </div>
+            <div class="row modal-row">
+                <input id="inpTitle" name="title" type="text" placeholder="Enter Title" maxlength="50"
+                       onchange="product_backlog.task_form.validateTitle()" class="one-line"/>
+            </div>
+            <div class="row modal-row">
+                <select id="selDropDown" name="list" class="drop-down">
                     <option value="ToDo">To Do</option>
                 </select>
             </div>
             <hr/>
+            <div class="row modal-row">
+                <label id="Desc" name="description">Description</label>
+            </div>
+            <div class="row modal-row">
+                    <textarea id="txtDesc" name="description" maxlength="500"
+                              onchange="product_backlog.task_form.validateDescription()" class="area">
+                    </textarea>
+            </div>
         </section>
 
-        <section id="divDesc" class="container">
-            <label id="lbDesc" class="col-sm-8">Description</label>
-            <br/>
-            <textarea id="txtDesc" rows="15" class="col-sm-12">
-
-            </textarea>
-            <br/>
-            <button id="btnSave" type="submit" class="btn btn-primary">Add</button>
+        <section class="modal-footer">
+            <div class="row modal-row">
+                <button id="btnSaveTask" type="button" disabled onclick="product_backlog.task_form.saveTask()"
+                        class="btn btn-primary">
+                    Add
+                </button>
+                <button id="btnCancelTaskForm" type="button" onclick="product_backlog.task_form.discardForm()"
+                        class="btn btn-primary">
+                    Cancel
+                </button>
+            </div>
         </section>
     </form>
 </body>
